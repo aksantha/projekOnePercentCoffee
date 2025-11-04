@@ -3,12 +3,13 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { menuItems, MenuItem } from "@/data/menuData";
 import { MenuDetailDialog } from "@/components/MenuDetailDialog";
+import { useNavigate } from "react-router-dom";
 
 export const MenuSection = () => {
   const [selectedMenu, setSelectedMenu] = useState<MenuItem | null>(null);
-  const [showAllMenu, setShowAllMenu] = useState(false);
+  const navigate = useNavigate();
   
-  const displayedItems = showAllMenu ? menuItems : menuItems.slice(0, 3);
+  const displayedItems = menuItems.slice(0, 3);
 
   return (
     <section id="menu" className="py-20 scroll-mt-20">
@@ -59,13 +60,13 @@ export const MenuSection = () => {
           ))}
         </div>
 
-        {!showAllMenu && menuItems.length > 3 && (
+        {menuItems.length > 3 && (
           <div className="text-center mt-12 observe-scroll">
             <Button 
               size="lg"
               variant="outline"
               className="bg-card/80 backdrop-blur-sm shadow-soft hover:shadow-card transition-smooth hover:scale-105"
-              onClick={() => setShowAllMenu(true)}
+              onClick={() => navigate('/menu')}
             >
               Lihat Lebih Banyak Menu
             </Button>

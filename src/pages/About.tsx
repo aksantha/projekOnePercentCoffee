@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Target, Users, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Target, Users, Award, MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
 import storefrontImage from "@/assets/storefront.jpg";
 
 const About = () => {
@@ -124,6 +125,108 @@ const About = () => {
               Kami terus belajar dan berkembang, mengikuti tren kopi terkini sambil
               mempertahankan nilai-nilai tradisional yang membuat kopi istimewa.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 bg-accent/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Kunjungi Kami
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Kami senang mendengar dari Anda. Mari bertemu untuk secangkir kopi!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth">
+              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <MapPin className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Lokasi</h3>
+              <p className="text-sm text-muted-foreground">
+                Jl. Inspirasi No. 99, Jakarta Selatan 12150
+              </p>
+            </Card>
+
+            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth">
+              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <Phone className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Telepon</h3>
+              <p className="text-sm text-muted-foreground">+62 812 3456 7890</p>
+            </Card>
+
+            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth">
+              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <Mail className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Email</h3>
+              <p className="text-sm text-muted-foreground">hello@satupersen.coffee</p>
+            </Card>
+
+            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth">
+              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <Clock className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Jam Operasional</h3>
+              <p className="text-sm text-muted-foreground">
+                Senin - Minggu: 08.00 - 22.00 WIB
+              </p>
+            </Card>
+          </div>
+
+          <div className="text-center animate-fade-in">
+            <h3 className="text-2xl font-bold text-foreground mb-6">Follow Us</h3>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Ikuti perjalanan kopi kami di Instagram dan dapatkan update terbaru
+              tentang menu spesial, event, dan inspirasi harian.
+            </p>
+            <a
+              href="https://instagram.com/satupersencoffee"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="gap-3 shadow-card hover:shadow-hover transition-smooth">
+                <Instagram className="w-5 h-5" />
+                @satupersencoffee
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 gradient-hero">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Siap untuk Secangkir Inspirasi?
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Kunjungi kami hari ini dan rasakan perbedaan SatuPersen Coffee
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <a href="tel:+6281234567890">
+                <Button size="lg" className="shadow-card hover:shadow-hover transition-smooth">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Hubungi Kami
+                </Button>
+              </a>
+              <a href="mailto:hello@satupersen.coffee">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="shadow-soft hover:shadow-card transition-smooth"
+                >
+                  <Mail className="w-5 h-5 mr-2" />
+                  Kirim Email
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>

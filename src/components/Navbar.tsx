@@ -1,25 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Coffee } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80; // Navbar height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-      setIsMobileMenuOpen(false);
-    }
-  };
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +17,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { id: "home", label: "Beranda" },
-    { id: "about", label: "Tentang" },
-    { id: "menu", label: "Menu" },
-    { id: "contact", label: "Kontak" },
+    { path: "/", label: "Beranda" },
+    { path: "/tentang", label: "Tentang" },
+    { path: "/menu", label: "Menu" },
   ];
 
   return (
@@ -47,25 +33,29 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <button onClick={() => scrollToSection('home')} className="flex items-center gap-2 group cursor-pointer">
+          <Link to="/" className="flex items-center gap-2 group cursor-pointer">
             <div className="bg-primary p-2 rounded-lg transition-smooth group-hover:scale-110">
               <Coffee className="w-6 h-6 text-primary-foreground" />
             </div>
             <span className="text-xl font-semibold text-foreground">
               SatuPersen Coffee
             </span>
-          </button>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-smooth cursor-pointer"
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-medium transition-smooth ${
+                  location.pathname === link.path
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -89,13 +79,18 @@ const Navbar = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="text-base font-medium text-muted-foreground hover:text-primary transition-smooth px-4 py-2 rounded-lg hover:bg-accent/50 text-left cursor-pointer"
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-base font-medium transition-smooth px-4 py-2 rounded-lg hover:bg-accent/50 text-left ${
+                    location.pathname === link.path
+                      ? "text-primary font-semibold bg-accent/30"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
