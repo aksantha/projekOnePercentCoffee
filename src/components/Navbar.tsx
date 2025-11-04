@@ -34,8 +34,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group cursor-pointer">
-            <div className="bg-primary p-2 rounded-lg transition-smooth group-hover:scale-110">
-              <Coffee className="w-6 h-6 text-primary-foreground" />
+            <div className=" transition-smooth group-hover:scale-110">
+              <img
+                src="/public/logo_satupersenNoBg.png"
+                alt="Logo"
+                className="w-12 h-12 text-primary-foreground"
+              />
             </div>
             <span className="text-xl font-semibold text-foreground">
               SatuPersen Coffee
