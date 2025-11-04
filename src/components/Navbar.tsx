@@ -37,6 +37,7 @@ const Navbar = () => {
             <div className=" transition-smooth group-hover:scale-110">
               <img
                 src="/logo_satupersenNoBgkompres.png"
+                src="public/logo_satupersenNoBgkompres.png"
                 alt="Logo"
                 className="w-12 h-12 text-primary-foreground"
               />

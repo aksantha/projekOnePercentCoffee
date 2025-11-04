@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <div className="p-2 rounded-lg">
                 <img
-                  src="/logo_satupersenNoBg.png"
+                  src="public/logo_satupersenNoBg.png"
                   alt="Logo"
                   className="w-12 h-12 text-primary-foreground"
                 />
