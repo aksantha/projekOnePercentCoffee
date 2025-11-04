@@ -36,7 +36,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2 group cursor-pointer">
             <div className=" transition-smooth group-hover:scale-110">
               <img
-                src="/public/logo_satupersenNoBg.png"
+                src="/public/logo_satupersenNoBgkompres.png"
                 alt="Logo"
                 className="w-12 h-12 text-primary-foreground"
               />
