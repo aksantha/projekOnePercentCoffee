@@ -1,128 +1,46 @@
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { menuItems } from "@/data/menuData";
+import { MenuDetailDialog } from "@/components/MenuDetailDialog";
 
 const Menu = () => {
-  const menuCategories = [
-    {
-      category: "Signature Coffee",
-      items: [
-        {
-          name: "SatuPersen Latte",
-          description: "Espresso lembut dengan susu steamed, signature blend kami",
-          price: "35.000",
-          popular: true,
-        },
-        {
-          name: "Caramel Macchiato",
-          description: "Espresso, susu, vanilla, dan caramel yang manis",
-          price: "38.000",
-        },
-        {
-          name: "Cappuccino",
-          description: "Espresso klasik dengan foam susu yang sempurna",
-          price: "32.000",
-        },
-        {
-          name: "Flat White",
-          description: "Espresso ganda dengan microfoam susu yang halus",
-          price: "36.000",
-          popular: true,
-        },
-      ],
-    },
-    {
-      category: "Cold Brew & Iced",
-      items: [
-        {
-          name: "Cold Brew Original",
-          description: "Kopi dingin dengan ekstraksi 12 jam, smooth dan bold",
-          price: "35.000",
-          popular: true,
-        },
-        {
-          name: "Iced Americano",
-          description: "Espresso dengan air dingin dan es batu",
-          price: "30.000",
-        },
-        {
-          name: "Iced Caffe Latte",
-          description: "Espresso dengan susu dingin yang creamy",
-          price: "34.000",
-        },
-        {
-          name: "Iced Mocha",
-          description: "Espresso, cokelat, dan susu dengan es",
-          price: "38.000",
-        },
-      ],
-    },
-    {
-      category: "Manual Brew",
-      items: [
-        {
-          name: "V60 Pour Over",
-          description: "Single origin beans, clean dan bright",
-          price: "40.000",
-        },
-        {
-          name: "French Press",
-          description: "Full-bodied coffee dengan rich flavor",
-          price: "38.000",
-        },
-        {
-          name: "Aeropress",
-          description: "Smooth dan versatile, pilihan barista",
-          price: "38.000",
-        },
-      ],
-    },
-    {
-      category: "Non Coffee",
-      items: [
-        {
-          name: "Matcha Latte",
-          description: "Premium matcha dengan susu creamy",
-          price: "38.000",
-        },
-        {
-          name: "Chocolate",
-          description: "Cokelat premium dengan susu",
-          price: "32.000",
-        },
-        {
-          name: "Lemon Tea",
-          description: "Teh segar dengan lemon",
-          price: "25.000",
-        },
-      ],
-    },
-    {
-      category: "Pastries & Snacks",
-      items: [
-        {
-          name: "Croissant",
-          description: "Croissant butter yang renyah",
-          price: "25.000",
-        },
-        {
-          name: "Banana Bread",
-          description: "Homemade banana bread yang lembut",
-          price: "28.000",
-        },
-        {
-          name: "Cookies",
-          description: "Chocolate chip cookies segar",
-          price: "20.000",
-        },
-      ],
-    },
-  ];
+  const [selectedMenu, setSelectedMenu] = useState<typeof menuItems[0] | null>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("scroll-animate");
+          } else {
+            entry.target.classList.remove("scroll-animate");
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    document.querySelectorAll(".observe-scroll").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const groupedMenu = menuItems.reduce((acc, item) => {
+    if (!acc[item.category]) {
+      acc[item.category] = [];
+    }
+    acc[item.category].push(item);
+    return acc;
+  }, {} as Record<string, typeof menuItems>);
 
   return (
     <div className="min-h-screen pt-20">
       {/* Header */}
       <section className="gradient-hero py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center observe-scroll">
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
             Menu Kami
           </h1>
@@ -133,46 +51,45 @@ const Menu = () => {
       </section>
 
       {/* Menu Items */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
-            {menuCategories.map((category, categoryIndex) => (
-              <div
-                key={categoryIndex}
-                className="animate-fade-in"
-                style={{ animationDelay: `${categoryIndex * 0.1}s` }}
-              >
-                <h2 className="text-3xl font-bold text-foreground mb-8 pb-3 border-b-2 border-primary">
-                  {category.category}
+          <div className="space-y-20">
+            {Object.entries(groupedMenu).map(([category, items], categoryIndex) => (
+              <div key={categoryIndex} className="observe-scroll">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+                  {category}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {category.items.map((item, itemIndex) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {items.map((item, itemIndex) => (
                     <Card
                       key={itemIndex}
-                      className="p-6 gradient-card shadow-soft hover-lift group relative overflow-hidden"
+                      className="overflow-hidden gradient-card shadow-card hover-lift observe-scroll group cursor-pointer"
                     >
-                      <div className="absolute -right-6 -top-6 w-28 h-28 bg-primary/5 rounded-full transition-smooth group-hover:scale-150" />
-                      <div className="relative flex justify-between items-start mb-3">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-smooth">
-                              {item.name}
-                            </h3>
-                            {item.popular && (
-                              <Badge className="bg-primary text-primary-foreground">
-                                Popular
-                              </Badge>
-                            )}
-                          </div>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            {item.description}
+                      <div className="aspect-square overflow-hidden">
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className="w-full h-full object-cover transition-smooth group-hover:scale-110"
+                        />
+                      </div>
+                      <div className="p-6 space-y-4">
+                        <div>
+                          <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-smooth">
+                            {item.name}
+                          </h3>
+                          <p className="text-sm text-muted-foreground mb-3">
+                            {item.shortDesc}
+                          </p>
+                          <p className="text-2xl font-bold text-primary">
+                            Rp {item.price}
                           </p>
                         </div>
-                      </div>
-                      <div className="relative flex justify-end mt-4">
-                        <span className="text-xl font-bold text-primary">
-                          Rp {item.price}
-                        </span>
+                        <Button 
+                          className="w-full shadow-soft hover:shadow-card transition-smooth"
+                          onClick={() => setSelectedMenu(item)}
+                        >
+                          Lihat Selengkapnya
+                        </Button>
                       </div>
                     </Card>
                   ))}
@@ -183,9 +100,14 @@ const Menu = () => {
         </div>
       </section>
 
+      <MenuDetailDialog 
+        selectedMenu={selectedMenu} 
+        onClose={() => setSelectedMenu(null)} 
+      />
+
       {/* Note Section */}
       <section className="py-12 bg-accent/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center observe-scroll">
           <p className="text-muted-foreground">
             *Harga dapat berubah sewaktu-waktu. Untuk informasi lebih lanjut, hubungi kami.
           </p>

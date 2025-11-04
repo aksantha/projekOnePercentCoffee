@@ -1,9 +1,30 @@
+import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Target, Users, Award, MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
 import storefrontImage from "@/assets/storefront.jpg";
 
 const About = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("scroll-animate");
+          } else {
+            entry.target.classList.remove("scroll-animate");
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    document.querySelectorAll(".observe-scroll").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   const values = [
     {
       icon: Target,
@@ -29,7 +50,7 @@ const About = () => {
     <div className="min-h-screen pt-20">
       {/* Header */}
       <section className="gradient-hero py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center observe-scroll">
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
             Tentang Kami
           </h1>
@@ -43,7 +64,7 @@ const About = () => {
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
+            <div className="space-y-6 observe-scroll">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground">
                 Filosofi SatuPersen
               </h2>
@@ -65,7 +86,7 @@ const About = () => {
                 untuk berpikir, berkarya, dan berkembang.
               </p>
             </div>
-            <div className="animate-slide-in-right">
+            <div className="observe-scroll">
               <img
                 src={storefrontImage}
                 alt="SatuPersen Coffee Storefront"
@@ -79,7 +100,7 @@ const About = () => {
       {/* Values Section */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-16 observe-scroll">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Nilai-Nilai Kami
             </h2>
@@ -92,8 +113,7 @@ const About = () => {
             {values.map((value, index) => (
               <Card
                 key={index}
-                className="p-8 text-center gradient-card shadow-card hover:shadow-hover transition-smooth animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="p-8 text-center gradient-card shadow-card hover:shadow-hover transition-smooth observe-scroll"
               >
                 <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-8 h-8 text-primary" />
@@ -111,7 +131,7 @@ const About = () => {
       {/* Team Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto animate-fade-in">
+          <div className="text-center max-w-3xl mx-auto observe-scroll">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Tim Kami
             </h2>
@@ -132,7 +152,7 @@ const About = () => {
       {/* Contact Section */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-16 observe-scroll">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Kunjungi Kami
             </h2>
@@ -142,7 +162,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth">
+            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth observe-scroll">
               <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <MapPin className="w-6 h-6 text-primary" />
               </div>
@@ -152,7 +172,7 @@ const About = () => {
               </p>
             </Card>
 
-            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth">
+            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth observe-scroll">
               <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Phone className="w-6 h-6 text-primary" />
               </div>
@@ -160,7 +180,7 @@ const About = () => {
               <p className="text-sm text-muted-foreground">+62 812 3456 7890</p>
             </Card>
 
-            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth">
+            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth observe-scroll">
               <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6 text-primary" />
               </div>
@@ -168,7 +188,7 @@ const About = () => {
               <p className="text-sm text-muted-foreground">hello@satupersen.coffee</p>
             </Card>
 
-            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth">
+            <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth observe-scroll">
               <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Clock className="w-6 h-6 text-primary" />
               </div>
@@ -179,7 +199,7 @@ const About = () => {
             </Card>
           </div>
 
-          <div className="text-center animate-fade-in">
+          <div className="text-center observe-scroll">
             <h3 className="text-2xl font-bold text-foreground mb-6">Follow Us</h3>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               Ikuti perjalanan kopi kami di Instagram dan dapatkan update terbaru
@@ -202,7 +222,7 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
+          <div className="max-w-3xl mx-auto space-y-6 observe-scroll">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               Siap untuk Secangkir Inspirasi?
             </h2>
