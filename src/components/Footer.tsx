@@ -35,7 +35,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/menu"
+                  to="menu"
                   className="text-sm text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Menu
@@ -43,18 +43,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="tentang"
                   className="text-sm text-muted-foreground hover:text-primary transition-smooth"
                 >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-sm text-muted-foreground hover:text-primary transition-smooth"
-                >
-                  Kontak
+                  Tentang
                 </Link>
               </li>
             </ul>
@@ -67,7 +59,8 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                 <span className="text-sm text-muted-foreground">
-                  Jl. Inspirasi No. 99, Jakarta Selatan
+                  Jl. Ngurah Rai, Dauhwaru, Kec. Jembrana, Kabupaten Jembrana,
+                  Bali 82218
                 </span>
               </li>
               <li className="flex items-center gap-2">
@@ -90,7 +83,7 @@ const Footer = () => {
             <h3 className="font-semibold text-foreground mb-4">Follow Us</h3>
             <div className="flex gap-3">
               <a
-                href="https://instagram.com/satupersencoffee"
+                href="https://www.instagram.com/satupersen.coffee/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-accent hover:bg-primary text-foreground hover:text-primary-foreground p-3 rounded-lg transition-smooth shadow-soft hover:shadow-hover"
