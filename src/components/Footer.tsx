@@ -9,8 +9,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="bg-primary p-2 rounded-lg">
-                <Coffee className="w-5 h-5 text-primary-foreground" />
+              <div className="p-2 rounded-lg">
+                <img
+                  src="/public/logo_satupersenNoBg.png"
+                  alt="Logo"
+                  className="w-12 h-12 text-primary-foreground"
+                />
               </div>
               <span className="text-lg font-semibold text-foreground">
                 SatuPersen Coffee
@@ -93,7 +97,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-xs text-muted-foreground mt-4">
-              @satupersencoffee
+              @satupersen.coffee
             </p>
           </div>
         </div>

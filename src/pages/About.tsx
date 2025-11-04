@@ -1,8 +1,17 @@
 import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Target, Users, Award, MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
-import storefrontImage from "@/assets/storefront.jpg";
+import {
+  Target,
+  Users,
+  Award,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Instagram,
+} from "lucide-react";
+import storefrontImage from "@/assets/satupersenStore.jpg";
 
 const About = () => {
   useEffect(() => {
@@ -69,21 +78,22 @@ const About = () => {
                 Filosofi SatuPersen
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                SatuPersen Coffee lahir dari keyakinan sederhana namun kuat: peningkatan
-                1% setiap hari akan membawa perubahan besar dalam hidup. Seperti proses
-                menyeduh kopi yang sempurna, kesuksesan memerlukan kesabaran, dedikasi,
-                dan perhatian terhadap detail.
+                SatuPersen Coffee lahir dari keyakinan sederhana namun kuat:
+                peningkatan 1% setiap hari akan membawa perubahan besar dalam
+                hidup. Seperti proses menyeduh kopi yang sempurna, kesuksesan
+                memerlukan kesabaran, dedikasi, dan perhatian terhadap detail.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Kami memilih nama "SatuPersen" untuk mengingatkan diri sendiri dan
-                pelanggan kami bahwa setiap hari adalah kesempatan untuk menjadi lebih
-                baik. Dan apa cara yang lebih baik untuk memulai hari selain dengan
-                secangkir kopi berkualitas di ruang yang tenang dan inspiratif?
+                Kami memilih nama "SatuPersen" untuk mengingatkan diri sendiri
+                dan pelanggan kami bahwa setiap hari adalah kesempatan untuk
+                menjadi lebih baik. Dan apa cara yang lebih baik untuk memulai
+                hari selain dengan secangkir kopi berkualitas di ruang yang
+                tenang dan inspiratif?
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Sejak dibuka pada tahun 2023, SatuPersen Coffee telah menjadi rumah kedua
-                bagi para pencinta kopi, freelancer, dan siapa saja yang mencari ruang
-                untuk berpikir, berkarya, dan berkembang.
+                Sejak dibuka pada tahun 2023, SatuPersen Coffee telah menjadi
+                rumah kedua bagi para pencinta kopi, freelancer, dan siapa saja
+                yang mencari ruang untuk berpikir, berkarya, dan berkembang.
               </p>
             </div>
             <div className="observe-scroll">
@@ -136,14 +146,15 @@ const About = () => {
               Tim Kami
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              SatuPersen Coffee dijalankan oleh tim barista profesional dan coffee
-              enthusiast yang passionate tentang kualitas. Setiap anggota tim kami
-              berkomitmen untuk menghadirkan pengalaman kopi terbaik dan menciptakan
-              ruang yang ramah dan inspiratif.
+              SatuPersen Coffee dijalankan oleh tim barista profesional dan
+              coffee enthusiast yang passionate tentang kualitas. Setiap anggota
+              tim kami berkomitmen untuk menghadirkan pengalaman kopi terbaik
+              dan menciptakan ruang yang ramah dan inspiratif.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Kami terus belajar dan berkembang, mengikuti tren kopi terkini sambil
-              mempertahankan nilai-nilai tradisional yang membuat kopi istimewa.
+              Kami terus belajar dan berkembang, mengikuti tren kopi terkini
+              sambil mempertahankan nilai-nilai tradisional yang membuat kopi
+              istimewa.
             </p>
           </div>
         </div>
@@ -157,7 +168,8 @@ const About = () => {
               Kunjungi Kami
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Kami senang mendengar dari Anda. Mari bertemu untuk secangkir kopi!
+              Kami senang mendengar dari Anda. Mari bertemu untuk secangkir
+              kopi!
             </p>
           </div>
 
@@ -166,9 +178,12 @@ const About = () => {
               <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <MapPin className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Lokasi</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">
+                Lokasi
+              </h3>
               <p className="text-sm text-muted-foreground">
-                Jl. Inspirasi No. 99, Jakarta Selatan 12150
+                Jl. Ngurah Rai, Dauhwaru,
+                <br /> Kec. Jembrana, Kabupaten Jembrana, Bali 82218
               </p>
             </Card>
 
@@ -176,7 +191,9 @@ const About = () => {
               <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Phone className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Telepon</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">
+                Telepon
+              </h3>
               <p className="text-sm text-muted-foreground">+62 812 3456 7890</p>
             </Card>
 
@@ -184,35 +201,46 @@ const About = () => {
               <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Email</h3>
-              <p className="text-sm text-muted-foreground">hello@satupersen.coffee</p>
+              <h3 className="text-lg font-semibold text-foreground mb-2">
+                Email
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                hello@satupersen.coffee
+              </p>
             </Card>
 
             <Card className="p-6 gradient-card shadow-card hover:shadow-hover transition-smooth observe-scroll">
               <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Clock className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Jam Operasional</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">
+                Jam Operasional
+              </h3>
               <p className="text-sm text-muted-foreground">
-                Senin - Minggu: 08.00 - 22.00 WIB
+                Senin - Minggu: 08.00 - 23.00 WIB
               </p>
             </Card>
           </div>
 
           <div className="text-center observe-scroll">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Follow Us</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-6">
+              Follow Us
+            </h3>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Ikuti perjalanan kopi kami di Instagram dan dapatkan update terbaru
-              tentang menu spesial, event, dan inspirasi harian.
+              Ikuti perjalanan kopi kami di Instagram dan dapatkan update
+              terbaru tentang menu spesial, event, dan inspirasi harian.
             </p>
             <a
-              href="https://instagram.com/satupersencoffee"
+              href="https://www.instagram.com/satupersen.coffee/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" className="gap-3 shadow-card hover:shadow-hover transition-smooth">
+              <Button
+                size="lg"
+                className="gap-3 shadow-card hover:shadow-hover transition-smooth"
+              >
                 <Instagram className="w-5 h-5" />
-                @satupersencoffee
+                @satupersen.coffee
               </Button>
             </a>
           </div>
@@ -231,7 +259,10 @@ const About = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <a href="tel:+6281234567890">
-                <Button size="lg" className="shadow-card hover:shadow-hover transition-smooth">
+                <Button
+                  size="lg"
+                  className="shadow-card hover:shadow-hover transition-smooth"
+                >
                   <Phone className="w-5 h-5 mr-2" />
                   Hubungi Kami
                 </Button>

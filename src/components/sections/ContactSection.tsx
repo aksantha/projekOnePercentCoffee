@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Instagram, Phone, Mail, Clock } from "lucide-react";
-import storefront from "@/assets/storefront.jpg";
+import storefront from "@/assets/satupersenStore.jpg";
 
 export const ContactSection = () => {
   return (
@@ -50,7 +50,7 @@ export const ContactSection = () => {
                 <p className="text-sm text-muted-foreground">
                   Senin - Minggu
                   <br />
-                  08:00 - 22:00
+                  08:00 - 23:00
                 </p>
               </Card>
             </div>

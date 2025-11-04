@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-coffee.jpg";
+import heroImage from "@/assets/satupersenBar.jpg";
 
 export const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
@@ -16,7 +16,10 @@ export const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+    >
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -37,10 +40,10 @@ export const HeroSection = () => {
           menginspirasi dan menenangkan
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="shadow-card hover:shadow-hover transition-smooth hover:scale-105"
-            onClick={() => scrollToSection('menu')}
+            onClick={() => scrollToSection("menu")}
           >
             Lihat Menu
           </Button>
@@ -48,7 +51,7 @@ export const HeroSection = () => {
             size="lg"
             variant="outline"
             className="bg-card/80 backdrop-blur-sm shadow-soft hover:shadow-card transition-smooth hover:scale-105"
-            onClick={() => scrollToSection('contact')}
+            onClick={() => scrollToSection("contact")}
           >
             Kunjungi Kami
           </Button>
