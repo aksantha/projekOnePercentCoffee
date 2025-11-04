@@ -11,10 +11,12 @@ const Home = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("scroll-animate");
+          } else {
+            entry.target.classList.remove("scroll-animate");
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
     );
 
     document.querySelectorAll(".observe-scroll").forEach((el) => {
